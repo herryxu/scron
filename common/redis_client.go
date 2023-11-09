@@ -1,4 +1,4 @@
-package redis_locker
+package common
 
 import (
 	"fmt"
