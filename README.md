@@ -26,4 +26,4 @@ if _, err := cron.AddSingleton("*/10 * * * * *", TestCronTab, "act.craving.run.T
 	}
 cron.start()
 ```
-* 和使用原有gcron 注册cron方法一样,底层的变动对业务无感
+* 注册cron方法一样,底层的变动对业务无感
