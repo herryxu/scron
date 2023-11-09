@@ -8,18 +8,18 @@
 ## scron使用
 ### 第一步 本地go环境
 ``` go env
-"GOPRIVATE": "github.com/olaola-chat/",
-"GONOPROXY": "github.com/olaola-chat/",
-"GONOSUMDB": "github.com/olaola-chat/",
+"GOPRIVATE": "github.com/henryxu/",
+"GONOPROXY": "github.com/henryxu/",
+"GONOSUMDB": "github.com/henryxu/",
 ```
 ### 第二步 拉取依赖
 ```mod
-go get -u github.com/olaola-chat/slp-tools
+go get -u github.com/henryxu/tools
 go mod tidy // 最好是更新一下依赖关系
 ```
 ### 第三步 使用
 ```
-import "github.com/olaola-chat/slp-tools/scron"
+import "github.com/henryxu/tools/scron"
  
 cron := scron.new()
 if _, err := cron.AddSingleton("*/10 * * * * *", TestCronTab, "act.craving.run.TestCronTab"); err != nil {
