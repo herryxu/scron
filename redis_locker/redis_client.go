@@ -1,14 +1,10 @@
-package common
+package redis_locker
 
 import (
-	"context"
 	"fmt"
+	"github.com/go-redis/redis/v8"
 	"log"
 	"sync"
-	"time"
-
-	"github.com/go-redis/redis/v8"
-	"github.com/olaola-chat/slp-tools/redis_locker"
 )
 
 var redisClient = &redis.Client{}
@@ -20,18 +16,10 @@ type redisConfig struct {
 	Password string
 }
 
-func NewRedisLocker(key, taskKey string, ttl int, client *redis.Client) redis_locker.RedisLockInter {
-	return redis_locker.NewCronLock(context.Background(), client, key, taskKey,
-		redis_locker.WithAutoRenew(),
-		redis_locker.WithTimeout(time.Duration(ttl)*time.Second))
-}
-
 // RedisClient 根据name实例化redis对象
 func NewRedisClient() *redis.Client {
-	//instanceKey := "slp-tools-go-redis"
 	once.Do(func() {
 		config := redisConfig{}
-		//err := g.Cfg().GetStruct(fmt.Sprintf("go-redis.%s", name), &config)
 		err := getConf(&config)
 		if err != nil {
 			panic(fmt.Errorf("NewRedisClient config err:%v", err))
@@ -65,20 +53,14 @@ func NewRedisClient() *redis.Client {
 	if redisClient != nil {
 		return redisClient
 	}
-	//alarmIns := alarm.GetAlarmInstance()
 	// 告警
-	//alarmIns.SendAlarm(fmt.Sprintf("slp-tools.NewRedisClient错误,请及时处理！@all"), "slp-tools.redis.alarm", 5*time.Minute)
+	//alarmIns := alarm.GetAlarmInstance()
+	//alarmIns.SendAlarm(fmt.Sprintf("slp-tools.NewRedisClient错误,请及时处理！@all"), "xxxxkeyname", 5*time.Minute)
 	panic(fmt.Errorf("NewRedisClient err,redisClient:%v", redisClient))
 }
 func getConf(config *redisConfig) error {
-	if RunMode == "prod" {
-		config.Host = "r-bp13qyr3ykmuvb7jv5.redis.rds.aliyuncs.com"
-		config.Port = 6379
-		config.Password = "slp_tools_rds2023"
-	} else {
-		config.Host = "127.0.0.1"
-		config.Port = 6379
-		config.Password = ""
-	}
+	config.Host = "127.0.0.1"
+	config.Port = 6379
+	config.Password = ""
 	return nil
 }

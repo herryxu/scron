@@ -3,6 +3,7 @@ package scron
 import (
 	"context"
 	"fmt"
+	scron "github.com/olaola-chat/slp-tools/scron/cron_locker"
 	"math"
 	"time"
 
@@ -50,7 +51,7 @@ func (entry *Entry) getLock() bool {
 	key := entry.GetCronExecKey(entry.Next)
 	taskKey := entry.GetTaskExecKey()
 	// 理想状态下分配给状态最佳的服务
-	redisLocker := common.NewRedisLocker(key, taskKey, ttl, common.NewRedisClient())
+	redisLocker := scron.NewRedisLocker(key, taskKey, ttl, scron.NewRedisClient())
 	if err := redisLocker.Lock(); err != nil {
 		if TaskLockError == err.Error() {
 			alarmIns := alarm.GetAlarmInstance()
