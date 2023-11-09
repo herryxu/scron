@@ -1,5 +1,5 @@
 ## Todo
-* 解决原有gcron只能单机执行
+* 解决cron只能单机执行
 * 脚本机状态上报
 * alarm告警作为公共组件
 * 将公共组件集中管理
@@ -8,9 +8,9 @@
 ## scron使用
 ### 第一步 本地go环境
 ``` go env
-"GOPRIVATE": "github.com/henryxu/",
-"GONOPROXY": "github.com/henryxu/",
-"GONOSUMDB": "github.com/henryxu/",
+"GOPRIVATE": "github.com/henryxu/tools",
+"GONOPROXY": "github.com/henryxu/tools",
+"GONOSUMDB": "github.com/henryxu/tools",
 ```
 ### 第二步 拉取依赖
 ```mod

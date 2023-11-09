@@ -1,0 +1,10 @@
+.idea/*
+.vscode/
+.DS_Store
+linux/*
+bin/*
+vendor
+/z/
+/log/
+/cache/
+config/config_test.toml
