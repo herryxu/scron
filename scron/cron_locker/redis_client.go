@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/go-redis/redis/v8"
-	"github.com/olaola-chat/slp-tools/redis_locker"
+	"github.com/henryxu/tools/redis_locker"
 )
 
 var redisClient = &redis.Client{}

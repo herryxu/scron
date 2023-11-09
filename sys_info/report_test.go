@@ -2,7 +2,7 @@ package sys_info
 
 import (
 	"fmt"
-	"github.com/olaola-chat/slp-tools/common"
+	"github.com/henryxu/tools/common"
 	"testing"
 )
 

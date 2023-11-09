@@ -4,14 +4,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/olaola-chat/slp-tools/limiter"
+	"github.com/henryxu/tools/limiter"
 	"io/ioutil"
 	"net/http"
 	"strings"
 )
 
 const (
-	//ChargeWebhook = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e55d27d5-62de-4039-a119-eb88a17f219f"
 	prodEnv = "prod"
 )
 
@@ -21,7 +20,7 @@ type weChatAlarm struct {
 
 func newWeChatAlarm() IAlarm {
 	w := &weChatAlarm{
-		webhook: "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=872b1013-e950-49ed-98fe-dd95397482ee",
+		webhook: "xxxxx",
 	}
 	return w
 }

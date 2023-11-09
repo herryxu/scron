@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/olaola-chat/slp-tools/redis_locker"
+	"github.com/henryxu/tools/redis_locker"
 )
 
 const (

@@ -3,13 +3,13 @@ package scron
 import (
 	"context"
 	"fmt"
-	scron "github.com/olaola-chat/slp-tools/scron/cron_locker"
+	scron "github.com/henryxu/tools/scron/cron_locker"
 	"math"
 	"time"
 
-	"github.com/olaola-chat/slp-tools/alarm"
-	"github.com/olaola-chat/slp-tools/common"
-	"github.com/olaola-chat/slp-tools/sys_info"
+	"github.com/henryxu/tools/alarm"
+	"github.com/henryxu/tools/common"
+	"github.com/henryxu/tools/sys_info"
 )
 
 var TaskLockError = "lock Taskkey failed"

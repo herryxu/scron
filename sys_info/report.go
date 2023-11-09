@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/olaola-chat/slp-tools/common"
+	"github.com/henryxu/tools/common"
 )
 
 var (
